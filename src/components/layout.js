@@ -7,10 +7,13 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby";
+import materialClasses from '../styles/material.module.scss';
 
-import Header from "./header"
-import "./layout.css"
+import Header from "./header";
+import '../styles/theme.scss';
+import "./layout.css";
+import Shop from "./shop";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -28,12 +31,16 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
+          position: 'relative',
           margin: `0 auto`,
-          maxWidth: 960,
+          maxWidth: 1024,
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        <main>{children}</main>
+        <main style={{minHeight: '100vh'}}>
+          {children}
+          <Shop />
+        </main>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}

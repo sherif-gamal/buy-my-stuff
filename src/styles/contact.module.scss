@@ -1,0 +1,60 @@
+.form-input {
+    margin: 0 20px !important;
+}
+
+.form {
+    border: 1px black solid;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: saddlebrown;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    > div {
+        display: flex;
+    }
+}
+
+.error {
+    border: red 1px solid;
+}
+
+.error > div:before {
+    content: '';
+    border-bottom: red 1px solid;
+}
+
+.message-container {
+    width: 100%;
+}
+
+.text-area {
+    outline: none;
+    margin: 10px 20px !important;
+    border-bottom: solid 1px black !important;
+}
+
+.error > .text-area {
+    border-bottom: solid 1px red !important;
+}
+
+.submit {
+    margin-left: auto !important;
+}
+
+.message-length {
+    font-size: x-small;
+    color: red;
+    margin-left: auto;
+}
+
+.success {
+    color: green;
+    font-size: small;
+    transition: opacity 0.5s;
+}
+
+.hidden {
+    opacity: 0;
+}
