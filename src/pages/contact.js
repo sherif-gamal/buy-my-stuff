@@ -14,7 +14,7 @@ export default function Contact() {
             <div>
             <p>Solve the Captcha to show phone number: {showNumber ? '0404487294' : '04********'} </p>
             <Recaptcha
-                sitekey="6Lfp1aUZAAAAADFdjTJymKN70KO5WjaFk8-hfX08"
+                sitekey="6Ldi4aUZAAAAAM5Y6M3smu018e3zTK1c5cRqdqG_"
                 verifyCallback={() => setShowNumber(true)}
             />
             
