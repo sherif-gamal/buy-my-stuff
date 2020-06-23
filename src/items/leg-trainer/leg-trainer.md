@@ -5,7 +5,6 @@ featuredImage: 1.jpg
 images:
     - 1.jpg
     - 2.jpg
-    - 3.jpg
 date: 2020-06-13
 gone: false
 excerpt: Leg training thing. In perfect condition. Almost never used.
