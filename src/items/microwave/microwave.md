@@ -11,6 +11,7 @@ date: 2020-06-13
 gone: false
 excerpt: Samsunt smart sensor microwave oven. In perfect condition. Worth $249
 price: 90
+order: 6
 ---
 * Samsunt Microwave
 * In perfect condition

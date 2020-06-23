@@ -52,6 +52,12 @@
     transition: opacity 0.5s;
 }
 
+.err {
+    color: red;
+    font-size: small;
+    transition: opacity 0.5s;
+}
+
 .hidden {
     opacity: 0;
 }

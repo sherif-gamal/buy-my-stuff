@@ -11,7 +11,7 @@ images:
 date: 2020-06-13
 gone: false
 excerpt: Home & Co. grill. Bought last year and used 3 or 4 times. In great condition.
-price: 15
+price: 20
 ---
 * Home & Co. grill
 * In perfect condition

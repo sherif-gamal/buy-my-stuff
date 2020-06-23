@@ -4,6 +4,7 @@ import ContactForm from '../components/contactForm';
 import Layout from '../components/layout';
 import Recaptcha from 'react-recaptcha';
 import { useState } from 'react';
+import CartContext from '../components/cartContext';
 
 
 export default function Contact() {
@@ -17,7 +18,9 @@ export default function Contact() {
                 sitekey="6Ldi4aUZAAAAAM5Y6M3smu018e3zTK1c5cRqdqG_"
                 verifyCallback={() => setShowNumber(true)}
             />
-            <ContactForm />
+            <CartContext.Consumer>
+                { ({cart}) => <ContactForm cart={cart}/> }
+            </CartContext.Consumer>
             </div>
             
         </Layout>

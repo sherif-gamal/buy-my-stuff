@@ -8,6 +8,6 @@ images:
 date: 2020-06-13
 gone: false
 excerpt: Fan
-price: 5
+price: 10
 ---
 * Fan
