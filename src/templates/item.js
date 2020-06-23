@@ -11,6 +11,8 @@ import classes from '../styles/items.module.scss';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import CartContext from '../components/cartContext';
+import { RemoveShoppingCart } from '@material-ui/icons';
 
 export const query = graphql`
   query ($slug:String) {
@@ -25,6 +27,7 @@ export const query = graphql`
       frontmatter {
         title
         price
+        slug
         excerpt
         images {
           childImageSharp {
@@ -46,6 +49,7 @@ export const query = graphql`
 
 export default function Item({ data }) {
   const { frontmatter, html } = data.markdownRemark;
+  const { slug, price, title } = frontmatter;
   const [value, setvalue] = useState(0);
   const images = frontmatter.images.map(image => image.childImageSharp.fixed.src);
   const slides = frontmatter.images.map(image => 
@@ -80,14 +84,35 @@ export default function Item({ data }) {
             </div>
             <div>
               <div dangerouslySetInnerHTML={{__html: html}}></div>
-              <Button
-                variant="contained"
-                color="primary"
-                className={classes.button}
-                endIcon={<AddShoppingCartIcon />}
-              >
-                Add
-              </Button>
+              <CartContext.Consumer>
+                    {({cart, addToCart, removeFromCart}) => {
+                      if (cart[slug]) {
+                        return (
+                          <Button
+                          variant="contained"
+                          color="primary"
+                          className={classes.button}
+                          endIcon={<RemoveShoppingCart  />}
+                          onClick={() => removeFromCart(slug)}
+                        >
+                          Remove
+                        </Button>
+                        )
+                    } else {
+                        return (
+                          <Button
+                          variant="contained"
+                          color="primary"
+                          className={classes.button}
+                          endIcon={<AddShoppingCartIcon />}
+                          onClick={() => addToCart({slug, title, price})}
+                        >
+                          Add
+                        </Button>
+                        )
+                    }
+                    }}
+              </CartContext.Consumer>
             </div>
             
           </div>

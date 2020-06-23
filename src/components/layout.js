@@ -8,12 +8,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby";
-import materialClasses from '../styles/material.module.scss';
-
 import Header from "./header";
 import '../styles/theme.scss';
 import "./layout.css";
 import Shop from "./shop";
+import CartContext, { useDefaultContext } from '../components/cartContext';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -24,30 +23,30 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
-
+  `);
+  
+  const defaultContext = useDefaultContext();
+  
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          position: 'relative',
-          margin: `0 auto`,
-          maxWidth: 1024,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main style={{minHeight: '100vh'}}>
-          {children}
-          <Shop />
-        </main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
+      <CartContext.Provider value={defaultContext}>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <div
+          style={{
+            position: 'relative',
+            margin: `0 auto`,
+            maxWidth: 1024,
+            padding: `0 1.0875rem 1.45rem`,
+          }}
+        >
+          <main style={{minHeight: '100vh'}}>
+            {children}
+            <Shop />
+          </main>
+          <footer style={{textAlign: 'center'}}>
+            © 2020 <a href="https://sgamal.com">Sherif Gamal</a>
+          </footer>
+        </div>
+      </CartContext.Provider>
   )
 }
 

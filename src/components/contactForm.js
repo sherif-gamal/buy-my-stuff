@@ -4,6 +4,8 @@ import { SendRounded } from '@material-ui/icons';
 import classes from '../styles/contact.module.scss';
 import Axios from 'axios';
 import cls from 'classnames';
+import CartContext from './cartContext';
+import { computeMessage } from '../utils'
 
 export default function ContactForm() {
     const url = "https://getform.io/f/1eafd699-0e5b-4438-8855-09b9f3d513a0";
@@ -21,8 +23,9 @@ export default function ContactForm() {
         setEmail({value, error: !emailRegex.test(value)});
         setsuccess(false);
     }
-    function validateAndSetMessage({target: {value}}) {
-        setMessage({value, error: !value || value.length < 10});
+    function validateAndSetMessage(value) {
+        if (value === message.value) return;
+        setMessage({value, error: !value});
         setsuccess(false);
     }
 
@@ -40,7 +43,6 @@ export default function ContactForm() {
     }
 
     return (
-        <div>
             <form name="contact" method="POST" data-netlify="true" className={classes.form}>
                 <div className={classes.fullWidth}>
                     <FormControl className={cls(classes.formInput, name.error ? classes.error : '')}>
@@ -56,8 +58,18 @@ export default function ContactForm() {
                 </div>
                 <div>
                 <FormControl className={cls(classes.messageContainer, message.error ? classes.error : '')}>
-                    <TextareaAutosize className={classes.textArea} aria-label="minimum height" rowsMin={3} placeholder="Message" onChange={validateAndSetMessage}/>
-                    {message.value.length < 10 ? <span className={classes.messageLength}>{message.value.length}</span> : ''}
+                    <CartContext.Consumer>
+                        {
+                            ({cart}) => {
+                                const defaultMessage = computeMessage(cart);
+                                validateAndSetMessage(defaultMessage);
+                                return <textarea name="" 
+                                    id="" cols="30" placeholder="Message" rows="10" className={classes.textArea}
+                                    defaultValue={defaultMessage}
+                                    onChange={({target}) => validateAndSetMessage(target.value)}></textarea>
+                            }
+                        }
+                    </CartContext.Consumer>
                 </FormControl>
                 </div>
                 <div>
@@ -75,7 +87,5 @@ export default function ContactForm() {
                     
                 </div>
             </form>
-            
-        </div>
     )
 }

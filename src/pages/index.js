@@ -7,12 +7,12 @@ import classes from '../styles/items.module.scss';
 export default function Index() {
   const data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark {
+      allMarkdownRemark(sort: {fields: frontmatter___order}) {
         nodes {
           frontmatter {
             title
             slug
-            date
+            date(formatString: "MMMM DD, YYYY")
             featuredImage {
               publicURL
             }
@@ -27,11 +27,9 @@ export default function Index() {
     <Layout>
       <div className={classes.itemsContainer}>
       {data.allMarkdownRemark.nodes.map(n => {
-        const { title, excerpt, slug, featuredImage: {publicURL} } = n.frontmatter
+        const { title, excerpt, slug, featuredImage: {publicURL}, price, date } = n.frontmatter
         return (
-          <Link to={slug} style={{textDecoration: 'none'}}>
-            <ItemCard title={title} excerpt={excerpt} image={publicURL} />
-          </Link>
+          <ItemCard key={slug} slug={slug} title={title} excerpt={excerpt} image={publicURL} price={price} date={date}/>
         )
       })}
       </div>

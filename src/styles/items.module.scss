@@ -2,6 +2,7 @@
     margin: 20px auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .item-container {
@@ -10,6 +11,14 @@
     display: flex;
     justify-content: center;
     align-content: center;
+}
+
+.card-h5 {
+    font-size: 1.2rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.334;
+    letter-spacing: 0em;
 }
 
 .arrow {

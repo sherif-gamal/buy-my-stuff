@@ -8,6 +8,7 @@ images:
 date: 2020-06-13
 excerpt: Chinese perfect airpods clone, i12 TWS
 price: 30
+order: 4
 ---
 
 * Chinese perfect clone of airpods

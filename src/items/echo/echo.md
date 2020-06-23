@@ -7,6 +7,7 @@ images:
 date: 2020-06-13
 excerpt: Amazon Echo Dot, hands-free, voice controlled device that uses Alexa to play music, control stuff.
 price: 30
+order: 3
 ---
 * Amazon echo dot
 * Barely used and in perfect condition

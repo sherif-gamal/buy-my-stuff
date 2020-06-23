@@ -11,14 +11,12 @@ export default function Contact() {
     return (
         <Layout>
             <SEO title="Contact me" />
-            <div>
-            <p>Solve the Captcha to show phone number: {showNumber ? '0404487294' : '04********'} </p>
+            <div style={{marginTop: 20}}>
+            <h4>Solve the Captcha to show phone number or send a message using the form below: {showNumber ? '0404487294' : '04********'} </h4>
             <Recaptcha
                 sitekey="6Ldi4aUZAAAAAM5Y6M3smu018e3zTK1c5cRqdqG_"
                 verifyCallback={() => setShowNumber(true)}
             />
-            
-            
             <ContactForm />
             </div>
             
