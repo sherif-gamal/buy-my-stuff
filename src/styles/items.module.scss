@@ -33,3 +33,22 @@
 .image {
     cursor: zoom-in;
 }
+
+.note {
+    margin: 15px;
+    background-color: #fffae6;
+    border-left: 0.5em solid #e7e3d1;
+}
+
+.note:before {
+    content: '💡';
+    color: transparent;
+    text-shadow: 0 0 0 rgb(214, 214, 51);
+    margin-right: 0.25em;
+    vertical-align: 0;
+}
+
+.price {
+    font-size: 1.05em;
+    color: rgb(83, 83, 27);
+}

@@ -25,6 +25,8 @@ export default function Index() {
   `);
   return (
     <Layout>
+      <p className={classes.note}>Hi! I am selling my stuff because I am going overseas. Prices are negotiable withing reasonable limits. 
+      Add what you like to the cart and send me a message, or you can find my phone number on <Link to='/contact'>Contact</Link></p>
       <div className={classes.itemsContainer}>
       {data.allMarkdownRemark.nodes.map(n => {
         const { title, excerpt, slug, featuredImage: {publicURL}, price, date } = n.frontmatter

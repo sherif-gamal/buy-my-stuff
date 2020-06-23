@@ -84,6 +84,7 @@ export default function Item({ data }) {
             </div>
             <div>
               <div dangerouslySetInnerHTML={{__html: html}}></div>
+              <p className={classes.price}>Selling for: {price > 0 ? '$' + price : price === 0 ? 'Free' : '∞'}</p>
               <CartContext.Consumer>
                     {({cart, addToCart, removeFromCart}) => {
                       if (cart[slug]) {
