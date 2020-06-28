@@ -6,7 +6,7 @@ images:
     - 1.jpg
     - 2.jpg
     - 3.jpg
-    - 5.jpg
+    - 4.jpg
 date: 2020-06-13
 gone: false
 excerpt: 16 cube portable DIY wardrobe. In great condition.
