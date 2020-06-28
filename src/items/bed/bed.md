@@ -13,7 +13,7 @@ excerpt: Double bed, in perfect condition, clean with no scratch whatsoever
 price: 50
 ---
 
-*Tokyo double bed in excellent condition. Used for 5 months only.
+* Tokyo double bed in excellent condition. Used for 5 months only.
 
 * Bought it from Fantastic furniture for $99 but can't find it on the website anymore but it's very similar to [this one](https://www.gumtree.com.au/s-ad/ingleburn/beds/tokyo-double-bed-frame-with-dream-classic-double-mattress/1248498840)
 
