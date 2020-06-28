@@ -10,6 +10,6 @@ date: 2020-06-13
 gone: false
 excerpt: Office chair in great condition
 price: 35
-order: 5
+order: 3
 ---
 * Office chair in great condition

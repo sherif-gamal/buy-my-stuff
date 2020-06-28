@@ -12,36 +12,38 @@ import { RemoveShoppingCart } from '@material-ui/icons';
 import CartContext from './cartContext';
 import { Link } from 'gatsby';
 import classes from '../styles/items.module.scss';
+import cls from 'classnames';
 
-export default function ItemCard({slug, title, image, excerpt, price, date}) {
+export default function ItemCard({ slug, title, image, excerpt, price, date, sold }) {
 
     return (
-        <Card style={{maxWidth: 300, height: 460, margin: '0 20px 20px 0'}}>
+        <Card style={{ maxWidth: 300, height: 460, margin: '0 20px 20px 0', position: 'relative' }}>
+            {sold && <div className={cls(classes.ribbon, classes.ribbonTopLeft)}><span>Sold</span></div>}
             <CardActionArea>
-                <Link to={`/${slug}`} style={{textDecoration: 'none'}}>
+                <Link to={`/${slug}`} style={{ textDecoration: 'none' }}>
                     <CardMedia
-                    component="img"
-                    alt={title}
-                    height="200"
-                    image={image}
-                    title={title}
+                        component="img"
+                        alt={title}
+                        height="200"
+                        image={image}
+                        title={title}
                     />
-                    <CardContent style={{padding: '0 16px', height: 170}}>
-                    <h5 className={classes.cardH5}>
-                        {title}
-                    </h5>
-                    <small>available from {date}</small>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        {excerpt}
-                    </Typography>
+                    <CardContent style={{ padding: '0 16px', height: 170 }}>
+                        <h5 className={classes.cardH5}>
+                            {title}
+                        </h5>
+                        <small>available from {date}</small>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            {excerpt}
+                        </Typography>
                     </CardContent>
                 </Link>
             </CardActionArea>
-            <CardActions style={{ justifyContent: 'space-between'}}>
+            <CardActions style={{ justifyContent: 'space-between' }}>
                 <div>{price > 0 ? '$' + price : price === 0 ? 'Free' : '∞'}</div>
                 <div>
                     <CartContext.Consumer>
-                        {({cart, addToCart, removeFromCart}) => {
+                        {({ cart, addToCart, removeFromCart }) => {
                             if (cart[slug]) {
                                 return (
                                     <IconButton color="secondary" aria-label="Remove from shopping cart" onClick={() => removeFromCart(slug)}>
@@ -50,7 +52,7 @@ export default function ItemCard({slug, title, image, excerpt, price, date}) {
                                 )
                             } else {
                                 return (
-                                    <IconButton color="primary" aria-label="Add to shopping cart" onClick={() => addToCart({slug, title, price})}>
+                                    <IconButton color="primary" aria-label="Add to shopping cart" onClick={() => addToCart({ slug, title, price })}>
                                         <AddShoppingCartIcon />
                                     </IconButton>
                                 )

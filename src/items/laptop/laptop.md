@@ -10,6 +10,7 @@ gone: false
 excerpt: Macbook Pro 13-inch, 128 GB storage, 2.7 GHz Intel Core i5, 8 GB RAM, No Charger - Used in great condition.
 price: 650
 order: 1
+sold: true
 ---
 * MacOS High Sierra
 * Display: Retina 13-inch

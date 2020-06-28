@@ -10,6 +10,7 @@ gone: false
 excerpt: Samsung S24E450B 24-Inch Monitor (16:9, 1920 x 1080) in perfect condition
 price: 70
 order: 2
+sold: true
 ---
 * Samsung S24E450B 24-inch monitor.
 * In perfect condition.

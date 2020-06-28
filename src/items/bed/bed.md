@@ -7,6 +7,7 @@ images:
     - 2.jpg
     - 3.jpg
     - 4.jpg
+    - 5.jpg
 date: 2020-06-13
 excerpt: Double bed, in perfect condition, clean with no scratch whatsoever
 price: 40

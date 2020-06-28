@@ -5,6 +5,7 @@ featuredImage: 1.jpg
 images:
     - 1.jpg
     - 2.jpg
+    - 3.jpg
 date: 2020-06-13
 excerpt: Double SLEEPTIGHT Mattress, in perfect condition, rarely used
 price: 90
